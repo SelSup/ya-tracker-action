@@ -54,7 +54,7 @@ jobs:
       # Выполняется, когда PR октрыт
       - name: Move Task When PR Opened
         if: github.event.action != 'closed'
-        uses: evrone-erp/yandex-tracker-action@v1
+        uses: SelSup/ya-tracker-action@v1.0.2
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
@@ -63,7 +63,7 @@ jobs:
       # Выполняется, когда PR смержен
       - name: Move Task When PR Merged
         if: github.event.pull_request.merged == true
-        uses: evrone-erp/yandex-tracker-action@v1
+        uses: SelSup/ya-tracker-action@v1.0.2
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
@@ -83,7 +83,7 @@ jobs:
 ```yaml
 - name: Move Task When PR Opened
   if: github.event.action != 'closed'
-  uses: evrone-erp/yandex-tracker-action@v1
+  uses: SelSup/ya-tracker-action@v1.0.2
   with:
     token: ${{secrets.GITHUB_TOKEN}}
     yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
@@ -113,7 +113,7 @@ jobs:
 ```yaml
 - name: Move Task When PR Opened
   if: github.event.action != 'closed'
-  uses: evrone-erp/yandex-tracker-action@v1
+  uses: SelSup/ya-tracker-action@v1.0.2
   with:
     token: ${{secrets.GITHUB_TOKEN}}
     yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
@@ -130,7 +130,7 @@ jobs:
 ```yaml
 - name: Move Task When PR Opened
   if: github.event.action != 'closed'
-  uses: evrone-erp/yandex-tracker-action@v1
+  uses: SelSup/ya-tracker-action@v1.0.2
   with:
     token: ${{secrets.GITHUB_TOKEN}}
     yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
@@ -148,7 +148,7 @@ jobs:
 ```yaml
 - name: Move Task When PR Opened
   if: github.event.action != 'closed'
-  uses: evrone-erp/yandex-tracker-action@v1
+  uses: SelSup/ya-tracker-action@v1.0.2
   with:
     token: ${{secrets.GITHUB_TOKEN}}
     yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
@@ -222,7 +222,7 @@ jobs:
 ```yaml
 - name: Move Task When PR Merged
   if: github.event.pull_request.merged == true
-  uses: evrone-erp/yandex-tracker-action@v1
+  uses: SelSup/ya-tracker-action@v1.0.2
   with:
     token: ${{secrets.GITHUB_TOKEN}}
     yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
@@ -239,9 +239,8 @@ jobs:
 - `token`: **Обязательно** Токен Github.
 - `yandex_oauth2_token`: **Обязательно** Токен Yandex oauth2. Вам необходимо зарегистрировать приложение OAUTH2, а затем
   получить токен пользователя. [Документация](https://yandex.ru/dev/id/doc/dg/oauth/concepts/about.html).
-- `yandex_org_id`: **Обязательно** Идентификатор организации, зарегистрированной в Yandex Tracker.
-- `is_yandex_cloud_org`: **Опционально** Если к Трекеру применяется только организация Yandex Cloud Organization,
-  используется заголовок `X-Cloud-Org-ID`.
+- `yandex_org_id`: **Обязательно** Идентификатор организации, зарегистрированной в [Yandex Tracker](https://tracker.yandex.ru/settings).
+- `comment`: **Опционально** Комментарий, который будет добавлен к задаче, например с номеров версии собранной
 - `ignore`: **Опционально** Игнорируемые задачи, разделенные запятыми.
 - `tasks`: **Опционально** Ключ задачи, которую нужно переместить на доску.
 - `task_url`: **Опционально** Значение по умолчанию - `false`. Установите в `true`, если вы хотите прокомментировать PR
