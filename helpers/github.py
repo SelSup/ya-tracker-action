@@ -32,7 +32,7 @@ def _prepare_description(
 
         task_links += f"{link}\n\n"
 
-    return f"{task_links}{body or ''}"
+    return f"{task_links}" + (body if body else "")
 
 
 def get_pr_commits(
